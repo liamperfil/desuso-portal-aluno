@@ -1,0 +1,99 @@
+{% extends 'homeapp/base.html' %}
+
+{% block title %}Cadastro - EducApp{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Estilos para garantir legibilidade máxima no fundo escuro */
+    .card-cadastro { 
+        background-color: #1a1a1a; 
+        border: 1px solid #333; 
+        border-radius: 12px;
+    }
+    .form-label { 
+        color: #535353 !important; 
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+    .form-control {
+        background-color: #2a2a2a !important;
+        border: 1px solid #444 !important;
+        color: #ffffff !important;
+        padding: 12px;
+    }
+    .form-control:focus {
+        background-color: #2d2d2d !important;
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+        color: #ffffff !important;
+    }
+    .btn-educapp { 
+        background-color: #6366f1; 
+        color: #ffffff; 
+        font-weight: bold;
+        padding: 12px;
+        border: none;
+    }
+    .btn-educapp:hover { 
+        background-color: #4f46e5; 
+        color: #ffffff; 
+    }
+    .text-indigo { color: #6366f1 !important; }
+    .login-link { color: #a1a1aa; text-decoration: none; }
+    .login-link:hover { color: #ffffff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-cadastro shadow-lg">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4 fw-bold">Criar Conta no <span class="text-indigo">EducApp</span></h2>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: João Santos" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido no formato 000.000.000-00">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="confirm_password" class="form-label">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-educapp w-100 mb-3">
+                            CADASTRAR
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0">
+                                <span class="label-suave">Já tem uma conta?</span> 
+                                <a href="{% url 'entrar' %}" class="login-link fw-bold"> Entre aqui</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'homeapp/base.html' %}
+
+{% block title %}EducApp{% endblock %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <h1 class="display-4">404 - Página Não Encontrada</h1>
+    <p class="lead">Ops! A página que você está procurando não existe.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Voltar para a Página Inicial</a>
+{% endblock %}

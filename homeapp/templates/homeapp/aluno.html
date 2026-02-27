@@ -1,0 +1,111 @@
+{% extends 'homeapp/base.html' %}
+
+{% block title %}Painel do Aluno - EducApp{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Cores customizadas para garantir contraste no fundo escuro */
+    .dashboard-container { color: #ffffff; }
+    .card-dashboard { 
+        background-color: #1a1a1a; 
+        border: 2px solid #333; 
+        border-radius: 12px;
+        color: #ffffff !important; 
+    }
+    
+    /* Forçando o branco puro para textos que estavam sumindo */
+    .texto-destaque { color: #ffffff !important; opacity: 1 !important; }
+    
+    /* O roxo da sua logo para títulos e botões */
+    .text-indigo-bright { color: #818cf8 !important; font-weight: bold; }
+    .btn-educapp { 
+        background-color: #6366f1; 
+        color: white; 
+        border: none; 
+        font-weight: bold;
+    }
+    .btn-educapp:hover { background-color: #4f46e5; color: white; }
+    
+    .label-suave { color: #a1a1aa; } /* Um cinza claro para rótulos, mas ainda legível */
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5 dashboard-container">
+    <div class="row mb-5">
+        <div class="col-md-8">
+            <h2 class="fw-bold">Olá, <span class="text-indigo-bright">João Santos</span>!</h2>
+            <p class="texto-destaque">Acompanhe seu desempenho no curso de Python.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <span class="badge bg-success p-2">Matrícula Ativa</span>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-outline-light flex-fill">Editar Perfil</button>
+            <button class="btn btn-outline-light flex-fill">Histórico de Pagamentos</button>
+            <button class="btn btn-outline-light flex-fill">Notas e Frequência</button>
+            <button class="btn btn-outline-light flex-fill">Cursos</button>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card card-dashboard h-100 p-4 shadow-sm">
+                <h5 class="text-indigo-bright">Sua Presença</h5>
+                <h2 class="fw-bold my-3 texto-destaque">85%</h2> 
+                <div class="progress mb-2" style="background-color: #444;">
+                    <div class="progress-bar" role="progressbar" style="width: 85%; background-color: #6366f1;"></div>
+                </div>
+                <p class="mb-0 label-suave">Mínimo exigido: 75%</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-dashboard h-100 p-4 shadow-sm">
+                <h5 class="text-indigo-bright">Média Atual</h5>
+                <h2 class="fw-bold my-3 texto-destaque">8.5</h2>
+                <p class="mb-0 texto-destaque">Última atualização: <span class="badge bg-primary">16/02/2026</span></p> 
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-dashboard h-100 p-4 shadow-sm" style="border-left: 5px solid #fbbf24;">
+                <h5 style="color: #fbbf24; font-weight: bold;">Financeiro</h5>
+                <h2 class="fw-bold my-3 texto-destaque">R$ 150,00</h2>
+                <p class="mb-3 texto-destaque">Vence em: <strong>10/03/2026</strong></p>
+                
+                <button class="btn btn-educapp w-100 py-2">
+                    GERAR PIX DE PAGAMENTO
+                </button>
+            </div>
+        </div>
+
+        <div class="col-12 mt-4">
+            <div class="card card-dashboard p-4">
+                <h5 class="mb-4">Minhas Turmas e Horários</h5>
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr class="text-secondary">
+                                <th>Curso</th>
+                                <th>Dias</th>
+                                <th>Horário</th>
+                                <th>Sala/Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Python para Backend</td>
+                                <td>Terça e Quinta</td>
+                                <td>19:00 - 21:30</td>
+                                <td><span class="text-indigo"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

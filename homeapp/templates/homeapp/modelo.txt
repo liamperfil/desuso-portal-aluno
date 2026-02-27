@@ -1,0 +1,6 @@
+{% extends 'homeapp/base.html' %}
+
+{% block title %}- EducApp{% endblock %}
+
+{% block content %}
+{% endblock %}
