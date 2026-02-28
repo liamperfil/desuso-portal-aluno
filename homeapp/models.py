@@ -19,6 +19,7 @@ class Aluno(models.Model):
     email = models.EmailField(unique=True)
     telefone = models.CharField(max_length=15)
     data_nascimento = models.DateField()
+    senha = models.CharField(max_length=128) # Para armazenar a senha hash
 
     def __str__(self):
         return self.nome

@@ -26,6 +26,6 @@ urlpatterns = [
     path('aluno/', views.aluno, name='aluno'),
     path('base/', views.base, name='base'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('cadastro/', views.cadastro, name='cadastro'),
+    path('cadastroaluno/', views.cadastroaluno, name='cadastroaluno'),
     path('admin/', admin.site.urls),
 ]

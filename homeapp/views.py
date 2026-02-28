@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .form import AlunoForm
 
 # Create your views here.
 def home(request):
@@ -22,5 +23,5 @@ def base(request):
 def dashboard(request):
     return render(request, 'homeapp/dashboard.html')
 
-def cadastro(request):
-    return render(request, 'homeapp/cadastro.html')
+def cadastroaluno(request):
+    return render(request, 'homeapp/cadastroaluno.html')

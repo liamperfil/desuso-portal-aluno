@@ -16,7 +16,7 @@
         margin-bottom: 8px;
     }
     .form-control {
-        background-color: #2a2a2a !important;
+        background-color: #636363 !important;
         border: 1px solid #444 !important;
         color: #ffffff !important;
         padding: 12px;
@@ -54,7 +54,7 @@
                     
                     <form method="post">
                         {% csrf_token %}
-                        
+                        {{ form.as_p }}
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome Completo</label>
                             <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: João Santos" required>
@@ -68,6 +68,11 @@
                         <div class="mb-3">
                             <label for="cpf" class="form-label">CPF</label>
                             <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido no formato 000.000.000-00">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" required pattern="\(\d{2}\)\s\d{5}-\d{4}" title="Digite um telefone válido no formato (00) 00000-0000">
                         </div>
 
                         <div class="mb-3">
